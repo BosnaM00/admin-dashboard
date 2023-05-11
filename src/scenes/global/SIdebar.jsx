@@ -25,23 +25,23 @@ const Sidebar = () => {
         const [selected, setSelected] = useState("Dashboard");    
     return (
         <Box
-            sx={{
-                "& .pro-sidebar-inner": {
-                    background: `${colors.primary[400]} !important`
-                },
-                "& .pro-icon-wrapper": {
-                    background: "transparent !important",
-                },
-                "& .pro-inner-item": {
-                    padding: "5px 35px 5px 20px !important",
-                },
-                "& .pro-inner-item:hover": {
-                    color: "#868dfb !important",
-                },
-                "& .pro-menu-item:active": {
-                    color: "#6870fa !important",
-                },    
-            }}
+          sx={{
+            "& .pro-sidebar-inner": {
+              background: `${colors.primary[400]} !important`,
+            },
+            "& .pro-icon-wrapper": {
+              backgroundColor: "transparent !important",
+            },
+            "& .pro-inner-item": {
+              padding: "5px 35px 5px 20px !important",
+            },
+            "& .pro-inner-item:hover": {
+              color: "#868dfb !important",
+            },
+            "& .pro-menu-item.active": {
+              color: "#6870fa !important",
+            },
+          }}
         >
             { <ProSidebarProvider collapsed={isCollapsed}>
                 <Menu iconShape="square">
@@ -56,20 +56,20 @@ const Sidebar = () => {
                         {!isCollapsed && (
                             <Box
                                 display="flex"
-                                justifyContent="space-between"
+                                justifycontent="space-between"
                                 alignItems="center"
                                 ml="15px"
                             >   
                                 <Typography variant="h3" color={colors.grey[100]}>
                                     ADMINS
                                 </Typography>
-                                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                                <IconButton 
+                                    onClick={() => setIsCollapsed(!isCollapsed)}>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     <MenuOutlinedIcon />
                                 </IconButton>
-
                             </Box>
-                        )}    
-                        
+                        )}                           
                     </MenuItem>    
                 </Menu>
             </ProSidebarProvider> }
