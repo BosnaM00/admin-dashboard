@@ -4,18 +4,39 @@ import { ProSidebarProvider, Menu, MenuItem} from 'react-pro-sidebar';
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import { tokens } from "../../therme";
-import { HomeOutlined } from "@mui/icons-material";
-import { PeopleOutlined } from "@mui/icons-material/PeopleOutlined";
-import { ContactsOutlined } from "@mui/icons-material/ContactsOutlined";
-import { ReceiptOutlined } from "@mui/icons-material/ReceiptOutlined";
-import { PersonOutlined } from "@mui/icons-material/PersonOutlined";
-import { CalendarTodayOutlined } from "@mui/icons-material/CalendarTodayOutlined";
-import { HelpOutlined } from "@mui/icons-material/HelpOutlined";
-import { BarChartOutlined } from "@mui/icons-material/BarChartOutlined";
-import { PieChartOutlined } from "@mui/icons-material/PieChartOutlined";
-import { TimelineOutlined } from "@mui/icons-material/TimelineOutlined";
+import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
+import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
+import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
+import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
+import PieChartOutlinedIcon from '@mui/icons-material/PieChartOutlined';
+import ShowChartOutlinedIcon from '@mui/icons-material/ShowChartOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import { MapOutlined } from "@mui/icons-material/MapOutlined";
+import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
+
+const Item = ({ title, to, icon, selected, setSelected}) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  return (
+    <MenuItem
+      active={selected === title}
+      style={{ color: colors.grey[100] }}
+      onClick={() => setSelected(title)}
+      icon={icon}
+    >
+      <Typography>{title}</Typography>
+      <Link to = {to} />
+    </MenuItem>
+  );
+};
+
+
+
+
+
 
 
 const Sidebar = () => {
@@ -99,7 +120,87 @@ const Sidebar = () => {
                           </Typography>
                         </Box>
                       </Box>
-                    )}   
+                    )}
+
+                    <Box paddingLeft={isCollapsed ? undefined : "10%"}>
+                      {/* <Item 
+                        title="Dashboard"
+                        to="/"
+                        icon={<HomeOutlinedIcon />}
+                        selected={selected}
+                        setSelected={setSelected}
+                      /> */}
+                    {/* //     <Item 
+                    //     title="Manage Team"
+                    //     to="/team"
+                    //     icon={<PeopleOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   />  
+                    //     <Item 
+                    //     title="Contacts Information"
+                    //     to="/contacts"
+                    //     icon={<ContactsOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   />  
+                    //     <Item 
+                    //     title="Invoices Balances"
+                    //     to="/invoices"
+                    //     icon={<ReceiptOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   />
+                    //     <Item 
+                    //     title="Profile form"
+                    //     to="/invoices"
+                    //     icon={<PersonOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   />
+                    //   <Item 
+                    //     title="Calendar"
+                    //     to="/calendar"
+                    //     icon={<CalendarTodayOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   /> 
+                    //   <Item 
+                    //     title="FAQ Page"
+                    //     to="/faq"
+                    //     icon={<HelpOutlineOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   /> 
+                    //   <Item 
+                    //     title="Bar Chart"
+                    //     to="/bar"
+                    //     icon={<BarChartOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   /> 
+                    //   <Item 
+                    //     title="Pie chart"
+                    //     to="/pie"
+                    //     icon={<PieChartOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   />        
+                    // <Item 
+                    //     title="Line chart"
+                    //     to="/line"
+                    //     icon={<ShowChartOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   /> 
+                    //   <Item 
+                    //     title="Geography chart"
+                    //     to="/geography"
+                    //     icon={<MapOutlinedIcon />}
+                    //     selected={selected}
+                    //     setSelected={setSelected}
+                    //   />                      */}
+                    </Box>
                 </Menu>
             </ProSidebarProvider> 
          </Box>
