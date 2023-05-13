@@ -21,8 +21,8 @@ import { MapOutlined } from "@mui/icons-material/MapOutlined";
 const Sidebar = () => {
          const theme = useTheme();
          const colors = tokens(theme.palette.mode);
-        const [isCollapsed, setIsCollapsed] = useState(false);
-        const [selected, setSelected] = useState("Dashboard");    
+         const [isCollapsed, setIsCollapsed] = useState(false);
+         const [selected, setSelected] = useState("Dashboard");    
     return (
         <Box
           sx={{
@@ -43,7 +43,7 @@ const Sidebar = () => {
             },
           }}
         >
-            { <ProSidebarProvider collapsed={isCollapsed}>
+             <ProSidebarProvider collapsed={isCollapsed}>
                 <Menu iconShape="square">
                     <MenuItem
                         onClick={() => setIsCollapsed(!isCollapsed)}
@@ -56,7 +56,7 @@ const Sidebar = () => {
                         {!isCollapsed && (
                             <Box
                                 display="flex"
-                                justifycontent="space-between"
+                                justifyContent="space-between"
                                 alignItems="center"
                                 ml="15px"
                             >   
@@ -82,10 +82,26 @@ const Sidebar = () => {
                             style={{ cursor: "pointer", borderRadius: "50%"}}
                           />                                                     
                         </Box> 
+                        <Box textAlign="center">
+                          <Typography
+                            variant="h2"
+                            color={colors.grey[100]}
+                            fontWeight="bold"
+                            sx = {{ m: "10px 0 0 0" }}
+                          >
+                            John
+                          </Typography>
+                          <Typography
+                            variant="5h"
+                            color={colors.greenAccent[500]}
+                          >
+                            VIP ADMIN
+                          </Typography>
+                        </Box>
                       </Box>
                     )}   
                 </Menu>
-            </ProSidebarProvider> }
+            </ProSidebarProvider> 
          </Box>
      );
 };
